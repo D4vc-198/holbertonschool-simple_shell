@@ -38,16 +38,8 @@ int prompt(void)
 		}
 		else
 		{
-			printf("I am parent\n");
-			wait(&status);
-			while (token[n] != NULL)
-			{
-				free(token[n]);
-				n++;
-			}
-			free(token);
-			free(command);
+		wait(status);
 		}
-	} while (0);
+	} while (i > 0);
 	return (i);
 }
