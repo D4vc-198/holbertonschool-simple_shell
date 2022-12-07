@@ -13,20 +13,25 @@
 #include <dirent.h>
 #include <signal.h>
 
-int exec(char *argv[]);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-char **_strtok(char *str, char *delm);
-int prompt(void);
-char *_strcat(char *dest, char *src);
-char *_strdup(char *str);
-char *_which(char *str);
+/*_getline*/
 size_t _getline(char **str, size_t *size, FILE *stream);
+/*prompt*/
+int prompt(int ac, char **av, char **env);
+/*_strtok*/
+char **_strtok(char *str, char *delm);
+/*_strcat*/
+char *_strcat(char *dest, char *src);
+/*_strdup*/
+char *_strdup(char *str);
 /*_strcmp*/ 
 int _strcmp(char *s1, char *s2);
 /*_which*/
 char *_which(char *str, char **env);
 /*_exit*/
 void __exit(char **s);
+/*exec*/
+int exec(char *argv[], char **env);
 /*_env*/
 int _env(char **str, char **env);
 
