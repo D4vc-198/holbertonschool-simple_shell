@@ -23,5 +23,11 @@ char *_which(char *str);
 size_t _getline(char **str, size_t *size, FILE *stream);
 /*_strcmp*/ 
 int _strcmp(char *s1, char *s2);
+/*_which*/
+char *_which(char *str, char **env);
+/*_exit*/
+void __exit(char **s);
+/*_env*/
+int _env(char **str, char **env);
 
 #endif
