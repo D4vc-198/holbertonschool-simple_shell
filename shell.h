@@ -36,5 +36,7 @@ int exec(char *argv[], char **env);
 int _env(char **str, char **env);
 /*_strcpy.c*/
 char *_strcpy(char *dest, char *src);
+/*path*/
+char *path(char *str, char **env);
 
 #endif
