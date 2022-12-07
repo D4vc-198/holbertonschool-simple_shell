@@ -15,7 +15,7 @@
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 /*_getline*/
-size_t _getline(char **str, size_t *size, FILE *stream);
+size_t _getline(char **str);
 /*prompt*/
 int prompt(int ac, char **av, char **env);
 /*_strtok*/
