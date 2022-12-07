@@ -34,5 +34,7 @@ void __exit(char **s);
 int exec(char *argv[], char **env);
 /*_env*/
 int _env(char **str, char **env);
+/*_strcpy.c*/
+char *_strcpy(char *dest, char *src);
 
 #endif
