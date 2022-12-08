@@ -34,7 +34,7 @@ char *c_strdup(char *str, int cs)
 /**
  * path - finds and returns a copy of the requested environmental variable
  * @str: string to store it in
- * @cs: entire set of environmental variables
+ * @env: entire set of environmental variables
  * Return: copy of requested environmental variable
  */
 char *path(char *str, char **env)

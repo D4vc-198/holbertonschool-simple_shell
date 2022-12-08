@@ -41,16 +41,3 @@ char *_which(char *str, char **env)
 	free(toks);
 	return (str);
 }
-
-/*test main*/
-/*
-
-void main (void)
-{
-	char *str;
-
-	str = _which("ls");
-	printf("%s\n", str);
-	free(str);
-}
-*/

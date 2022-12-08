@@ -1,9 +1,9 @@
 .\" Manpage for simple shell.
-.\" TH man 1 "August 29th 2022" "hsh(1) simple shell man page for Holberton"
+.\" TH man 1 "December 2022" "hsh(1) simple shell man page for Holberton"
 .SH NAME
 hsh command interpreter (simple shell)
 
 
 
 .SH AUTHOR
-Diego Valdez (/*Introduce your prefered email*/) Javier Icaza (javiicaza@gmail.com) 
+Diego Valdez (contactodiegoavc@gmail.com) Javier Icaza (javiicaza@gmail.com) 
