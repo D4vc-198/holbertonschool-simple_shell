@@ -21,7 +21,7 @@ int t_strlen(char *str, int pos, char delm)
 }
 
 /**
- * t_size - returns number of tokens for mallocing
+ * t_size - returns number of delim
  * @str: user's command typed into shell
  * @delm: delimeter (e.g. " ");
  * Return: number of tokens
@@ -29,15 +29,15 @@ int t_strlen(char *str, int pos, char delm)
 
 int t_size(char *str, char delm)
 {
-	int i = 0, num_toks = 0;
+	int i = 0, num_delm = 0;
 
 	while (str[i] != '\0')
 	{
 		if ((str[i] == delm) && (str[i + 1] != delm))
-			num_toks++;
+			num_delm++;
 		i++;
 	}
-	return (num_toks);
+	return (num_del);
 }
 
 /**

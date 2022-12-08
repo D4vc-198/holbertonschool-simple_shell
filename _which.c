@@ -12,7 +12,7 @@ char *_which(char *str, char **env)
 	char *pth, *cat, **toks;
 	int i = 0, f = 0;
 
-	pth = path("PATH", env);
+	pth = get_env("PATH", env);
 	toks = _strtok(pth, ":");
 	free(pth);
 	while (toks[i] != NULL)
