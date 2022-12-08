@@ -1,6 +1,12 @@
 #include "shell.h"
 #define BUFF_SIZE 64
 
+/**
+ * _getline - stores into malloced buffer the user's command into shell
+ * @str: buffer
+ * Return: number of characters read
+ */
+
 size_t _getline(char **str)
 {
 	ssize_t i = 0, size = 0, t = 0, t2 = 0, n = 0;
@@ -8,7 +14,11 @@ size_t _getline(char **str)
 
 	while (t2 == 0 && (i = read(STDIN_FILENO, buff, BUFF_SIZE - 1)))
 	{
+		if (i == -1)
+			return (-1);
+
 		buff[i] = '\0';
+
 		n = 0;
 		while (buff[n] != '\0')
 		{
@@ -16,8 +26,6 @@ size_t _getline(char **str)
 				t2 = 1;
 			n++;
 		}
-		if (i == -1)
-			return (-1);
 		if (t == 0)
 		{
 			i++;

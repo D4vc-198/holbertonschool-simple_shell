@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * _strcat - concatenate two strings
  * @dest: string to be appended to
@@ -8,30 +9,30 @@
 
 char *_strcat(char *dest, char *src)
 {
-	int i = 0;
-	int x = 0;
+	int len = 0;
+	int len2 = 0;
+    int total_len = 0;
 	int j = 0;
-	int y = 0;
 
-	while (dest[i] != '\0')
-		x++;
-		i++;
+	while (dest[le] != '\0')
+		len++;
+		total_len++;
 
 	}
-	while (src[y] != '\0')
+	while (src[len2] != '\0')
 	{
-		y++;
-		x++;
+		len2++;
+		total_len++;
 	}
-	x++;
-	dest = _realloc(dest, i, sizeof(char) * x);
+	dest = _realloc(dest, len, sizeof(char) * total_len + 1);
+
 	while (src[j] != '\0')
 	{
-		dest[i] = src[j];
-		i++;
+		dest[len] = src[j];
+		len++;
 		j++;
 	}
-	dest[i] = '\0';
+	dest[len] = '\0';
 
 	return (dest);
 }

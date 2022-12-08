@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+ * _env - prints environmental variables
+ * @str: user's command into shell (i.e. "env")
+ * @env: environmental variables
+ * Return: 0 on success
+ */
+
 int _env(char **str, char **env)
 {
 	int n = 0, c = 0;

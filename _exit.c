@@ -1,28 +1,29 @@
 #include "shell.h"
-
 /**
- * c_atoi - convert string to int
- *
- * @s: Value of input of string
- *
- * Return: return the int
- */
+ * c_atoi - custom atoi converts string to int
+ * @s: string
+ * Return: number if success, -1 if string contains non-numbers
+*/
 int c_atoi(char *s)
 {
-	int count = 0;
-	unsigned int tmp = 0;
-	int tmp_n = 1;
+	int i = 0;
+	unsigned int num = 0;
 
-	while (s[count] != '\0')
+	while (s[i] != '\0')
 	{
-		if (s[count] >= '0' && s[count] <= '9')
-			tmp = tmp * 10 + (s[count] - '0');
-		if (s[count] > '9' || s[count] < '0')
+		if (s[i] >= '0' && s[i] <= '9')
+			num = num * 10 + (s[i] - '0');
+		if (s[i] > '9' || s[i] < '0')
 			return (-1);
-		count++;
+		i++;
 	}
-	return (tmp = tmp * tmp_n);
+	return (num);
 }
+
+/**
+ * __exit - frees user input and then exits main program with a value
+ * @str: user's command into shell (e.g. "exit 99")
+ */
 
 void __exit(char **str)
 {
@@ -41,5 +42,5 @@ void __exit(char **str)
 		perror("Error:");
 		return;
 	}
-	exit(e_value)
+	exit(e_value);
 }
