@@ -13,6 +13,7 @@ char *c_strcat(char *dest, char *src)
 	int total_len = 0;
 	int j = 0;
 
+	/* find total length of both strings to realloc */
 	while (dest[len] != '\0')
 	{
 		len++;
@@ -24,9 +25,10 @@ char *c_strcat(char *dest, char *src)
 		total_len++;
 	}
 
+	/* realloc because dest was malloced outside of function */
 	dest = _realloc(dest, len, sizeof(char) * total_len + 1);
 
-	j = 1;
+	j = 1; /* ignore the first character */
 	while (src[j] != '\0')
 	{
 		dest[len] = src[j];
@@ -65,7 +67,6 @@ int c_setenv(list_t **env, char *name, char *dir)
  * @str: user's typed in command
  * @env: enviromental linked list to retrieve HOME path
  */
-
 void _cd(char **str, list_t *env)
 {
 	char *home = NULL, *current = NULL, *dir = NULL;
@@ -73,17 +74,17 @@ void _cd(char **str, list_t *env)
 	current = getcwd(current, 0);
 	if (str[1] != NULL)
 	{
-		if (str[1][0] == '~')
+		if (str[1][0] == '~') /* Usage: cd ~ */
 		{
 			dir = get_env("HOME", env);
 			dir = c_strcat(dir, str[1]);
 		}
-		else if (str[1][0] == '-')
+		else if (str[1][0] == '-') /* Usage: cd - */
 		{
 			if (str[1][1] == '\0')
 				dir = get_env("OLDPWD", env);
 		}
-		else
+		else /* Usage: cd directory1 */
 		{
 			dir = getcwd(dir, 0);
 			if (str[1][0] != '/')
@@ -100,7 +101,7 @@ void _cd(char **str, list_t *env)
 		current = getcwd(current, 0);
 		c_setenv(&env, "PWD", current);
 	}
-	else
+	else /* Usage: cd */
 	{
 		home = get_env("HOME", env);
 		c_setenv(&env, "OLDPWD", current);
@@ -115,5 +116,5 @@ void _cd(char **str, list_t *env)
 		free(home);
 	}
 	free(current);
-	free_double_ptr(str);
+	free_double_ptr(str); /* frees user input */
 }
