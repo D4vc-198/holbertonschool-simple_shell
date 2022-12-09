@@ -5,7 +5,6 @@
  * @env: environmental variables
  * Return: linked list
  */
-
 list_t *env_linked_list(char **env)
 {
 	list_t *head;
