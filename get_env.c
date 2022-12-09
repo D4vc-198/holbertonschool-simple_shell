@@ -37,22 +37,22 @@ char *c_strdup(char *str, int cs)
  * @env: entire set of environmental variables
  * Return: copy of requested environmental variable
  */
-char *get_env(char *str, char **env)
+char *get_env(char *str, list_t *env)
 {
-	int i = 0, j = 0, cs = 0;
+	int j = 0, cs = 0;
 
-	while (env[i] != NULL)
+	while (env != NULL)
 	{
 		j = 0;
-		while (env[i][j] == str[j])
+		while ((env->var)[j] == str[j])
 			j++;
 		if (str[j] == '\0')
 			break;
-		i++;
+		env = env->next;
 	}
 
 	while (str[cs] != '\0')
 		cs++;
 	cs++;
-	return (c_strdup(env[i], cs));
+	return (c_strdup(env->var, cs));
 }

@@ -10,13 +10,14 @@ void ctrl_c(int n)
 
 }
 
-int built_in(char **token, char **env)
+int built_in(char **token, list_t *env)
 {
 	int i = 0;
 
 	/* if user types "exit", free cmd tokens, and exit */
 	if (_strcmp(token[0], "exit") == 0)
 	{
+		free_linked_list(env);
 		__exit(token);
 		i = 1;
 	}
@@ -43,15 +44,15 @@ int built_in(char **token, char **env)
  * Return: 0 on success
  */
 
-int prompt(int ac, char **av, char **env)
+int prompt(char **en)
 {
-	size_t i = 0, n = 0, f = 0;
+	list_t *env;
+	size_t i = 0, n = 0;
 	int status = 0;
 	pid_t pid = 0;
 	char *command, *n_command, **token;
-	(void)ac;
-	(void)av;
 
+	env = env_linked_list(en);
 	do {
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "Javi Diego Shell$ ", 15);
@@ -64,6 +65,7 @@ int prompt(int ac, char **av, char **env)
 		if (i == 0)
 		{
 			free(command);
+			free_linked_list(env);
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
 			exit(0);
@@ -94,13 +96,7 @@ int prompt(int ac, char **av, char **env)
 		else
 		{
 			wait(status);
-			f = 0;
-			while (token[f] != NULL)
-			{
-				free(token[f]);
-				f++;
-			}
-			free(token);
+			free_double_ptr(token);
 		}
 	} while (i > 0);
 	return (0);

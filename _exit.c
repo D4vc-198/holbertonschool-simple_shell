@@ -27,16 +27,13 @@ int c_atoi(char *s)
 
 void __exit(char **str)
 {
-	int n = 0, e_value = 0;
+	int e_value = 0;
 
 	if (str[1] != NULL)
 		e_value = c_atoi(str[1]);
-	while (str[n] != NULL)
-	{
-		free(str[n]);
-		n++;
-	}
+
 	free(str);
+	free_double_ptr(str);
 	if (e_value == -1)
 	{
 		perror("Error:");

@@ -36,9 +36,9 @@ int t_size(char *str, char delm)
 		if ((str[i] == delm) && (str[i + 1] != delm))
 		{
 			num_delm++;
-			if (num_delm == 1 && str[i + 1] == '\0')
-				num_delm--;
 		}
+		if (num_delm == 1 && str[i + 1] == '\0')
+			num_delm--;
 		i++;
 	}
 	return (num_delm);
@@ -99,8 +99,8 @@ char **_strtok(char *str, char *delm)
 		si++;
 	}
 	p++;
-	if (buffsize == 0) /*check if there is only 1 command*/
-		p = 1;
+	if (p != buffsize + 1)
+		p = t;
 	toks[p] = NULL;
 	return (toks);
 }
