@@ -14,7 +14,8 @@ char *c_ignore(char *str)
 }
 
 /**
- * non_interactive -
+ * non_interactive - handles when user pipes commands into shell via pipeline
+ * (e.g. echo "ls/nls -al/n" | ./a.out)
  * @env: envrionmental variables
  */
 void non_interactive(list_t *env)
@@ -32,23 +33,23 @@ void non_interactive(list_t *env)
 	}
 	n_command = command;
 	command = c_ignore(command);
-	n_line = _strtok(command, "\n");
+	n_line = _strtok(command, "\n"); /* Usage: echo "ls\nls -l" | ./a.out */
 	if (n_command != NULL)
 		free(n_command);
 	n = 0;
 	while (n_line[n] != NULL)
 	{
-		token = NULL;
+		token = NULL; /* tokenize user's typed in command */
 		token = _strtok(n_line[n], " ");
-		if (built_in(token, env))
+		if (built_in(token, env))/*checks for built ins*/
 		{
 			n++;
 			continue;
 		}
-		pid = fork();
+		pid = fork(); /* create child process to execute cmd */
 		if (pid == 0)
 			_execve(token, env);
-		else
+		else /* parent waits till child finishes & frees cmd tokens */
 		{
 			wait(&status);
 			n++;
