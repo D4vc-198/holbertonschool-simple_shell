@@ -30,12 +30,14 @@ int prompt(char **env);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 size_t _getline(char **str);
 int t_strlen(char *str, int pos, char delm);
+
 char *ignore_space(char *str);
 char **_strtok(char *str, char *delm);
 char **c_strtok(char *str, char *delm);
 char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
 char *_strcpy(char *dest, char *src);
+
 int _strcmp(char *s1, char *s2);
 void _cd(char **str, list_t *env);
 int built_in(char **token, list_t *env);
@@ -50,6 +52,7 @@ char *get_env(char *str, list_t *env);
 list_t *env_linked_list(char **env);
 list_t *add_end_node(list_t **head, char *str);
 size_t print_list(list_t *h);
+
 int delete_nodeint_at_index(list_t **head, int index);
 int _unsetenv(list_t **env, char **str);
 int _setenv(list_t **env, char **str);
