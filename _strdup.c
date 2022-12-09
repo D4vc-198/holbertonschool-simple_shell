@@ -6,7 +6,6 @@
  * @str: string to duplicate
  * Return: pointer to duplicated string in allocated memory
  */
-
 char *_strdup(char *str)
 {
 	char *duplicate_str;
@@ -17,12 +16,10 @@ char *_strdup(char *str)
 
 	while (*(str + len))
 		len++;
-
 	len++; /* add null terminator to length */
 
 	duplicate_str = malloc(sizeof(char) * len); /* allocate memory */
-
-	if (duplicate_str == NULL) /* validate memory */
+	if (duplicate_str == NULL)
 		return (NULL);
 
 	i = 0;
