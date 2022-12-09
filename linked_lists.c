@@ -46,12 +46,14 @@ list_t *add_end_node(list_t **head, char *str)
 	list_t *holder;
 
 	if (head == NULL || str == NULL)
-		return (NULL);/*check if address of head is null*/
+		return (NULL); /* check if address of head is null */
 	new = malloc(sizeof(list_t));
-	if (new == NULL)/*malloc check*/
+	if (new == NULL)
 		return (NULL);
+
 	new->var = _strdup(str);
 	new->next = NULL;
+
 	holder = *head;
 	if (holder != NULL)
 	{
@@ -72,7 +74,7 @@ list_t *add_end_node(list_t **head, char *str)
  * delete_nodeint_at_index - removing node at index
  * @head: input head address
  * @index: input index
- * Return: 1 if succes -1 if fail
+ * Return: 1 if success, -1 if fail
  */
 int delete_nodeint_at_index(list_t **head, int index)
 {
@@ -121,4 +123,5 @@ void free_linked_list(list_t *list)
 		free(holder->var);
 		free(holder);
 	}
+
 }
