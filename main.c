@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * main - creates a sipmle shell
  * @ac: argument count
