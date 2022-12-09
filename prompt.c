@@ -10,6 +10,12 @@ void ctrl_c(int n)
 
 }
 
+/**
+ * built_in - handles builtins (exit, env, cd)
+ * @token: user's typed command
+ * @env: environmental variable
+ * Return: 1 if acted on builtin, 0 if not
+ */
 int built_in(char **token, list_t *env)
 {
 	int i = 0;
@@ -34,6 +40,18 @@ int built_in(char **token, list_t *env)
 		i = 1;
 	}
 	return (i);
+}
+
+/**
+ * ignore_space - return string without spaces in front
+ * @str: string
+ * Return: new string
+ */
+char *ignore_space(char *str)
+{
+	while (*str == ' ')
+		str++;
+	return (str);
 }
 
 /**
@@ -90,9 +108,7 @@ int prompt(char **en)
 			continue;
 		pid = fork();
 		if (pid == 0)
-		{
 			_execve(token, env);
-		}
 		else
 		{
 			wait(status);

@@ -20,7 +20,7 @@ int _execve(char **s, list_t *env)
 	{
 		if (execve(s[0], s, NULL) == -1)
 		{
-			perror("Error1:");
+			perror("Error:");
 			c_exit(s);
 		}
 	}
@@ -38,7 +38,7 @@ int _execve(char **s, list_t *env)
 	{
 		if (execve(holder, s, NULL) == -1)
 		{
-			perror("Error2:");
+			perror("Error:");
 			c_exit(s);
 		}
 	}

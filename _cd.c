@@ -38,6 +38,11 @@ char *c_strcat(char *dest, char *src)
 	return (dest);
 }
 
+/**
+ * _cd - change directory
+ * @str: user's typed in command
+ * @env: enviromental linked list to retrieve HOME path
+ */
 
 void _cd(char **str, list_t *env)
 {
@@ -59,12 +64,7 @@ void _cd(char **str, list_t *env)
 		{
 			current = getcwd(current, 0);
 			if (str[1][0] != '/')
-			{
 				current = _strcat(current, "/");
-				current = _strcat(current, str[1]);
-			}
-			else
-				current = _strcat(current, str[1]);
 		}
 		if (access(current, F_OK) == 0)
 			chdir(current);

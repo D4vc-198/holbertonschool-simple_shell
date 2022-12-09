@@ -44,6 +44,13 @@ int t_size(char *str, char delm)
 	return (num_delm);
 }
 
+/**
+ * ignore_delm - returns a version of string without preceeding delims
+ * @str: string
+ * @delm: delimiter (e.g. " ")
+ * Return: new string (e.g. "    ls -l" --> "ls -l")
+ */
+
 char *ignore_delm(char *str, char delm)
 {
 	while (*str == delm)
@@ -84,8 +91,7 @@ char **_strtok(char *str, char *delm)
 			if (toks[p] == NULL)
 				return (NULL);
 			i = 0;
-			while ((str[si] != d_ch) &&
-			       (str[si] != '\0'))
+			while ((str[si] != d_ch) && (str[si] != '\0'))
 			{
 				toks[p][i] = str[si];
 				i++;
@@ -94,13 +100,11 @@ char **_strtok(char *str, char *delm)
 			toks[p][i] = '\0';
 			t++;
 		}
-		if (si < se && str[si + 1] != d_ch)
+		if (si < se && (str[si + 1] != d_ch && str[si + 1] != '\0'))
 			p++;
 		si++;
 	}
 	p++;
-	if (p != buffsize + 1)
-		p = t;
 	toks[p] = NULL;
 	return (toks);
 }

@@ -1,5 +1,10 @@
 #include "shell.h"
 
+/**
+ * print_list - print linked list
+ * @h: linked list
+ * Return: size of linked list
+ */
 size_t print_list(list_t *h)
 {
 	list_t *c_list = h;
@@ -10,7 +15,7 @@ size_t print_list(list_t *h)
 	while (c_list != NULL)
 	{
 		if (c_list->var == NULL)
-			printf("[0] (nil)\n");
+			printf("(nil)\n");
 		else
 			printf("%s\n", c_list->var);
 		c_list = c_list->next;
@@ -19,6 +24,12 @@ size_t print_list(list_t *h)
 	return (count);
 }
 
+/**
+ * add_end_node - add node to end of linked list
+ * @head: pointer to head of linked list
+ * @str: data to new node
+ * Return: pointer to new linked list
+ */
 list_t *add_end_node(list_t **head, char *str)
 {
 	list_t *new;
@@ -85,6 +96,10 @@ int delete_nodeint_at_index(list_t **head, int index)
 	return (1);
 }
 
+/**
+ * free_linked_list - frees linked list
+ * @list: linked list
+ */
 void free_linked_list(list_t *list)
 {
 	list_t *holder;
