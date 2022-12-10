@@ -53,10 +53,10 @@ int c_setenv(list_t **env, char *name, char *dir)
 	char *cat;
 	list_t *holder;
 
-	cat = _strdup(name);
+	cat = _strdup(name); /* create new concatenated string */
 	cat = _strcat(cat, "=");
 	cat = _strcat(cat, dir);
-	index = find_env(*env, name);
+	index = find_env(*env, name); /* get idx to env var in linked list */
 
 	/* traverse to idx, free node data, reassign data */
 	holder = *env;
