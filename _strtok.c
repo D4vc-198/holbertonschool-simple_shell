@@ -104,7 +104,6 @@ char **_strtok(char *str, char *delm)
 		si++;
 	}
 	p++;
-/*	if (p != buffsize + 1) p = t; */
 	toks[p] = NULL; /* set last array ptr to NULL */
 	return (toks);
 }

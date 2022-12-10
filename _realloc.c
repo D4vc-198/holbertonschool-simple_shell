@@ -19,10 +19,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (NULL);
 	}
 
-	if (new_size == old_size) /* return ptr if reallocating same old size */
+	if (new_size == old_size) /* return ptr if reallocating same past size */
 		return (ptr);
 
-	if (ptr == NULL) /* malloc new size if ptr is originally null */
+	if (ptr == NULL) /* malloc new size if ptr is null */
 	{
 		p = malloc(new_size);
 		if (p == NULL)
@@ -31,7 +31,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 			return (p);
 	}
 
-	p = malloc(new_size); /* malloc and check error */
+	p = malloc(new_size); /* malloc then check error */
 	if (p == NULL)
 		return (NULL);
 
